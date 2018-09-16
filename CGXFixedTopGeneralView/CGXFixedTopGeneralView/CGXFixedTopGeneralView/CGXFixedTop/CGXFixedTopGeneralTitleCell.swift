@@ -113,7 +113,7 @@ class CGXFixedTopGeneralTitleCell: UICollectionViewCell {
             }
         }
         
-        
+    
         if  item.badge > 0 {
             titleBtn.addBadge(text: "\(item.badge)")
             let X = item.badgeX

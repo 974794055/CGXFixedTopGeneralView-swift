@@ -81,13 +81,20 @@ class CGXFixedTopGeneralTitleView: UIView,UICollectionViewDelegate,UICollectionV
     fileprivate func updatesliderView() -> Void {
         if manager.isSlider {
             let btnWidth:CGFloat = frame.size.width / CGFloat(self.dataArray.count)
+            var sliderW: CGFloat = btnWidth
+            let sliderH: CGFloat = manager.sliderHeight
+            var sliderX: CGFloat = btnWidth * CGFloat(manager.currentSelected)
+            let sliderY: CGFloat = self.bounds.height - manager.sliderHeight
+            
             if manager.isSliderEqual {
-                sliderView.frame = CGRect.init(x: 0, y: frame.size.height-manager.sliderHeight, width: btnWidth, height: manager.sliderHeight)
+                if !manager.isFirst {
+                    UIView.animate(withDuration: 0.25, animations: { [unowned self] in
+                        self.sliderView.frame = CGRect.init(x:sliderX, y: sliderY, width: sliderW, height: sliderH)
+                    })
+                } else{
+                    sliderView.frame = CGRect.init(x:sliderX, y: sliderY, width: sliderW, height: sliderH)
+                }
             } else{
-                var sliderW: CGFloat = 0
-                let sliderH: CGFloat = manager.sliderHeight
-                var sliderX: CGFloat = btnWidth * CGFloat(manager.currentSelected)
-                let sliderY: CGFloat = self.bounds.height - manager.sliderHeight
                 if manager.sliderWidthScale == 0 {
                     let model:CGXFixedTopGeneralTitleItem = self.dataArray[manager.currentSelected] as! CGXFixedTopGeneralTitleItem
                     sliderW = self.getSliderWidth(model: model)
@@ -160,7 +167,6 @@ extension CGXFixedTopGeneralTitleView {
         cell.delegate = self
         cell.titleBtn.isUserInteractionEnabled = manager.isUserBtn
         cell.updateTitleBtn(item: model)
-        cell.titleBtn.backgroundColor = UIColor.orange
         return cell;
     }
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

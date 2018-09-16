@@ -35,7 +35,7 @@ class CGXFixedTopGeneralTitleManager: NSObject {
     //是否有滑块
     var isSlider: Bool = true
     /// 是否下划线等分  默认和字体宽度相同
-    var isSliderEqual: Bool = false
+    var isSliderEqual: Bool = true
     /// 滑块颜色
     var sliderColor: UIColor = UIColor.red
     /// 滑块高度
