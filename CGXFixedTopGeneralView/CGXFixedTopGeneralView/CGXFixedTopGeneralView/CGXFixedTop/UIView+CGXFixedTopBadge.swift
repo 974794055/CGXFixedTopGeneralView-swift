@@ -81,7 +81,7 @@ extension UIView {
             if let aValue = objc_getAssociatedObject(self, &kBadgeLabel) as? CGXFixedTopBadgeLabel {
                 return aValue
             } else {
-                let badgeLabel = CGXFixedTopBadgeLabel.default()
+                let badgeLabel = CGXFixedTopBadgeLabel.init(frame: CGRect.init(x: 0, y: 0, width: 18, height: 18))
                 badgeLabel.center = CGPoint(x: self.p_width, y: 0)
                 self.addSubview(badgeLabel)
                 self.bringSubview(toFront: badgeLabel)

@@ -17,15 +17,20 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
     lazy var vcArray:NSMutableArray = {
         var vcArray = NSMutableArray()
         let vc1 = UIViewController()
+        self.addChildViewController(vc1)
         vc1.view.backgroundColor = UIColor.orange
         let vc2 = UIViewController()
+         self.addChildViewController(vc2)
         vc2.view.backgroundColor = UIColor.red
         let vc3 = UIViewController()
+         self.addChildViewController(vc3)
         vc3.view.backgroundColor = UIColor.orange
         
         let vc4 = UIViewController()
+         self.addChildViewController(vc4)
         vc4.view.backgroundColor = UIColor.red
         let vc5 = UIViewController()
+         self.addChildViewController(vc5)
         vc5.view.backgroundColor = UIColor.orange
         
        vcArray = [vc1,vc2,vc3,vc4,vc5]
@@ -41,27 +46,27 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
        
         for index in 0..<titleArr.count {
             let item = CGXFixedTopGeneralTitleItem.init()
-            //            if index == 0 {
-            //                item.titleNormalAttributed = self.string(Str: titleArr[index], lineSpeace: 3, textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 14))!
-            //            }else{
-            item.title = titleArr[index]
-            //            }
+            if index == 0 {
+                item.titleNormalAttributed = self.string(Str: titleArr[index], lineSpeace: 3, textColor: UIColor.red, textFont: UIFont.systemFont(ofSize: 14))!
+            }else{
+                item.title = titleArr[index]
+            }
             item.normalImage = nomArr[index]
             item.selectImage = selectArr[index]
             item.buttonMode = .Top
-            //            if index == 0 {
-            //
-            //                item.isSelect = true
-            //            }
-            //            if index == 1 {
-            //                item.buttonMode = .Right
-            //            }
-            //                if index == 2 {
-            //                    item.buttonMode = .Left
-            //            }
-            //            if index == 3 {
-            //                item.buttonMode = .Bottom
-            //            }
+                        if index == 0 {
+            
+                            item.isSelect = true
+                        }
+                        if index == 1 {
+                            item.buttonMode = .Right
+                        }
+                            if index == 2 {
+                                item.buttonMode = .Left
+                        }
+                        if index == 3 {
+                            item.buttonMode = .Bottom
+                        }
             array.add(item)
         }
         return array
@@ -90,7 +95,7 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
          self.view.backgroundColor = UIColor.white
 
       
-        titleView = CGXFixedTopGeneralTitleView.init(frame: CGRect.init(x: 40, y: 64, width: self.view.frame.size.width-80, height: 44))
+        titleView = CGXFixedTopGeneralTitleView.init(frame: CGRect.init(x: 40, y: 88, width: self.view.frame.size.width-80, height: 44))
         titleView.backgroundColor = UIColor.white
         titleView.delegate = self
         self.navigationItem.titleView = titleView
@@ -100,8 +105,7 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
 
 
 
-
-         menuVC = CGXFixedTopGeneralMenuView.init(frame: CGRect.init(x: 0, y: 64, width: self.view.frame.size.width, height: self.view.frame.size.height-64-49))
+         menuVC = CGXFixedTopGeneralMenuView.init(frame: CGRect.init(x: 0, y: 88, width: self.view.frame.size.width, height: self.view.frame.size.height-64-49))
         self.view.addSubview(menuVC)
         menuVC.delegate = self
         menuVC.updateMenuWith(titleAry: titleArray, vcAry: vcArray)
