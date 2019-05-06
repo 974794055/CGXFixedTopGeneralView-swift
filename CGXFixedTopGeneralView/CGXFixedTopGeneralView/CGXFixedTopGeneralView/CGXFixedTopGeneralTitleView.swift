@@ -3,6 +3,7 @@
 //  CGXFixedTopGeneralView
 //
 //  Created by 曹贵鑫 on 2018/8/9.
+// git下载链接：https://github.com/974794055/CGXFixedTopGeneralView-swift.git
 //  Copyright © 2018年 曹贵鑫. All rights reserved.
 //
 
@@ -162,7 +163,7 @@ extension CGXFixedTopGeneralTitleView {
             return (self.delegate?.collectionViewCGXFixedTopGeneralTitleView!(baseView: self, collectionView, cellForItemAt: indexPath))!
         }
         
-        let cell:CGXFixedTopGeneralTitleCell!=collectionView.dequeueReusableCell(withReuseIdentifier: "CGXFixedTopGeneralTitleCell", for: indexPath) as! CGXFixedTopGeneralTitleCell
+        let cell:CGXFixedTopGeneralTitleCell!=(collectionView.dequeueReusableCell(withReuseIdentifier: "CGXFixedTopGeneralTitleCell", for: indexPath) as! CGXFixedTopGeneralTitleCell)
         let model:CGXFixedTopGeneralTitleItem = self.dataArray[indexPath.row] as! CGXFixedTopGeneralTitleItem
         cell.delegate = self
         cell.titleBtn.isUserInteractionEnabled = manager.isUserBtn
