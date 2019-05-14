@@ -94,6 +94,7 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
         self.navigationItem.titleView = titleView
         let manager = CGXFixedTopGeneralTitleManager()
         manager.currentSelected = 1
+        manager.isSliderEqual = false
         titleView.updateWithManager(DataArray: narTitleArray, Manager: manager)
         
         
@@ -112,7 +113,7 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
     func selectInderCGXFixedTopGeneralMenuView(baseView: UIView, index: NSInteger) {
         print("点击的",index)
         
-        //        menuVC.updateMenuIndexWithTitle(string: "aaa", index: 0)
+                menuVC.updateMenuIndexWithTitle(string: "aaa", index: 0)
                 menuVC.updateWithBtnWithBadge(index: 3, badge: 2)
         
         //        menuVC.updateWithBtnWithAttributedString(normalAttributedString: self.string(Str: "bbbaa", lineSpeace: 3, textColor: UIColor.black, textFont: UIFont.systemFont(ofSize: 14))!, selectAttributedString: self.string(Str: "bbbaa", lineSpeace: 3, textColor: UIColor.red, textFont: UIFont.systemFont(ofSize: 14))!, index: 1)

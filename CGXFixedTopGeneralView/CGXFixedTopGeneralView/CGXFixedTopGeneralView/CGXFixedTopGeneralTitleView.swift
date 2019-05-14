@@ -9,13 +9,6 @@
 
 import UIKit
 
-//enum CGXFixedTopGeneralTitleViewMode:Int {
-//    case titleViewTitle  //文字
-//    case titleViewAttributedString //文字图片
-//     case titleViewBadge //角标
-//}
-
-
 class CGXFixedTopGeneralTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CGXFixedTopGeneralTitleCellDelgate {
     
     //数据源。格式 @[xx,xx,xx,xx]
