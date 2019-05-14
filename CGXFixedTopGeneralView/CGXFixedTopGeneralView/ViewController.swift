@@ -15,20 +15,20 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
     lazy var vcArray:NSMutableArray = {
         var vcArray = NSMutableArray()
         let vc1 = UIViewController()
-        self.addChildViewController(vc1)
+        self.addChild(vc1)
         vc1.view.backgroundColor = UIColor.orange
         let vc2 = UIViewController()
-        self.addChildViewController(vc2)
+        self.addChild(vc2)
         vc2.view.backgroundColor = UIColor.red
         let vc3 = UIViewController()
-        self.addChildViewController(vc3)
+        self.addChild(vc3)
         vc3.view.backgroundColor = UIColor.orange
         
         let vc4 = UIViewController()
-        self.addChildViewController(vc4)
+        self.addChild(vc4)
         vc4.view.backgroundColor = UIColor.red
         let vc5 = UIViewController()
-        self.addChildViewController(vc5)
+        self.addChild(vc5)
         vc5.view.backgroundColor = UIColor.orange
         
         vcArray = [vc1,vc2,vc3,vc4,vc5]
@@ -113,7 +113,7 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
     func selectInderCGXFixedTopGeneralMenuView(baseView: UIView, index: NSInteger) {
         print("点击的",index)
         
-                menuVC.updateMenuIndexWithTitle(string: "aaa", index: 0)
+//                menuVC.updateMenuIndexWithTitle(string: "aaa", index: 0)
                 menuVC.updateWithBtnWithBadge(index: 3, badge: 2)
         
         //        menuVC.updateWithBtnWithAttributedString(normalAttributedString: self.string(Str: "bbbaa", lineSpeace: 3, textColor: UIColor.black, textFont: UIFont.systemFont(ofSize: 14))!, selectAttributedString: self.string(Str: "bbbaa", lineSpeace: 3, textColor: UIColor.red, textFont: UIFont.systemFont(ofSize: 14))!, index: 1)
@@ -134,19 +134,19 @@ class ViewController: UIViewController,CGXFixedTopGeneralTitleViewDelgate,CGXFix
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         // NSKernAttributeName字体间距
-        let attributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.kern: 1.0] as [NSAttributedStringKey : Any] as [NSAttributedStringKey : Any]
+        let attributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.kern: 1.0] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attriStr = NSMutableAttributedString(string: str, attributes: attributes)
         //设置字体
-        attriStr.addAttribute(NSAttributedStringKey.font, value: font, range: NSMakeRange(0,str.count))
+        attriStr.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(0,str.count))
         //设置字体
-        attriStr.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0,1))
+        attriStr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0,1))
         //设置字体颜色
-        attriStr.addAttribute(NSAttributedStringKey.foregroundColor, value: textcolor, range: NSMakeRange(0, str.count))
+        attriStr.addAttribute(NSAttributedString.Key.foregroundColor, value: textcolor, range: NSMakeRange(0, str.count))
         //设置文本背景颜色
-        attriStr.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.orange, range: NSMakeRange(0, 1))
+        attriStr.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.orange, range: NSMakeRange(0, 1))
         //设置背景颜色
         if #available(iOS 10.0, *) {
-            attriStr.addAttribute(kCTBackgroundColorAttributeName as NSAttributedStringKey, value: UIColor.yellow, range: NSMakeRange(0, str.count))
+            attriStr.addAttribute(kCTBackgroundColorAttributeName as NSAttributedString.Key, value: UIColor.yellow, range: NSMakeRange(0, str.count))
         } else {
             // Fallback on earlier versions
         }

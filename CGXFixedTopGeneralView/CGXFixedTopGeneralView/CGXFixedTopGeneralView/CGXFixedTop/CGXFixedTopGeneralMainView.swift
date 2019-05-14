@@ -94,7 +94,7 @@ extension CGXFixedTopGeneralMainView {
             var vc = UIViewController.init()
             vc = vcArray[index]
              vc.view.frame = CGRect.init(x: CGFloat(index) * self.bounds.width, y: 0, width: mainScrollView.frame.size.width, height: mainScrollView.frame.size.height)
-            self.viewController(self)?.addChildViewController(vc)
+            self.viewController(self)?.addChild(vc)
             mainScrollView.addSubview(vc.view)
         }
         //设置内容区域

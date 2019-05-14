@@ -133,7 +133,7 @@ extension CGXFixedTopGeneralTitleView {
     }
     //每个分区的内边距
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 0, 0, 0);
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
     }
     
     //最小 item 间距
@@ -178,7 +178,7 @@ extension CGXFixedTopGeneralTitleView {
             guard let str = model.title as NSString? else {
                 return 0
             }
-            let strSize = str.boundingRect(with: CGSize.init(width: CGFloat(MAXFLOAT), height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [kCTFontAttributeName as NSAttributedStringKey : model.titleNormalFont], context: nil)
+            let strSize = str.boundingRect(with: CGSize.init(width: CGFloat(MAXFLOAT), height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [kCTFontAttributeName as NSAttributedString.Key : model.titleNormalFont], context: nil)
             return strSize.width
             
         }else{
@@ -194,7 +194,7 @@ extension CGXFixedTopGeneralTitleView {
         let normalText: NSString = textStr as NSString
         let size = CGSize.init(width: 300, height: bounds.height)
         let dic = NSDictionary(object: font, forKey: kCTFontAttributeName as! NSCopying)
-        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [NSAttributedStringKey : Any], context:nil).size
+        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [NSAttributedString.Key : Any], context:nil).size
         return stringSize.height
     }
     
@@ -202,7 +202,7 @@ extension CGXFixedTopGeneralTitleView {
         let normalText: NSString = textStr as NSString
         let size = CGSize.init(width: 300, height: bounds.height)
         let dic = NSDictionary(object: font, forKey: kCTFontAttributeName as! NSCopying)
-        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [NSAttributedStringKey : Any], context:nil).size
+        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [NSAttributedString.Key : Any], context:nil).size
         return stringSize.width
     }
 }

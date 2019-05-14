@@ -25,12 +25,12 @@ class CGXFixedTopGeneralTitleCell: UICollectionViewCell {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.contentHorizontalAlignment = .center;
         btn.imageView?.contentMode = .center
-        btn.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         btn.setTitleColor(UIColor.black, for: .normal)
         btn.setTitleColor(UIColor.red, for:.selected)
         btn.setTitleColor(UIColor.red, for: [.highlighted, .selected])
         btn.frame = CGRect(x: 0, y: 0, width: frame.size.width , height: frame.size.height)
-        btn.addTarget(self, action:#selector(titleBtnClick(button:)), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action:#selector(titleBtnClick(button:)), for: UIControl.Event.touchUpInside)
         return btn
     }()
     
