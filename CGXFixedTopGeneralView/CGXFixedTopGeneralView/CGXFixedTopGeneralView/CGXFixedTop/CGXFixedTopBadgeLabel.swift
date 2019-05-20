@@ -46,7 +46,7 @@ open class CGXFixedTopBadgeLabel: UILabel {
     
     private func width(string: String?, font: UIFont, height: CGFloat) -> CGFloat {
         if string?.isEmpty == true { return 0.0 }
-        var attributes : [NSAttributedStringKey: AnyObject] = [.font : font]
+        var attributes : [NSAttributedString.Key: AnyObject] = [.font : font]
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .byWordWrapping
         attributes.updateValue(paragraphStyle, forKey: .paragraphStyle)

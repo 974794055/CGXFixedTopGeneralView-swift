@@ -3,6 +3,7 @@
 //  CGXFixedTopGeneralView
 //
 //  Created by 曹贵鑫 on 2018/8/12.
+// git下载链接：https://github.com/974794055/CGXFixedTopGeneralView-swift.git
 //  Copyright © 2018年 曹贵鑫. All rights reserved.
 //
 
@@ -84,6 +85,10 @@ class CGXFixedTopGeneralMenuView: UIView,CGXFixedTopGeneralTitleViewDelgate,CGXF
     //滑动控制器
     internal  func selectIndexCGXFixedTopGeneralMainView(baseView: UIView, index: NSInteger) {
         titleView.selectCurrentInterCGXFixedTopGeneralTitleView(inter: index)
+        
+        if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralMenuViewDelgate.scrollerInderCGXFixedTopGeneralMenuView(baseView:index:))))!{
+            self.delegate?.scrollerInderCGXFixedTopGeneralMenuView!(baseView: self, index: index)
+        }
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -101,5 +106,8 @@ class CGXFixedTopGeneralMenuView: UIView,CGXFixedTopGeneralTitleViewDelgate,CGXF
 @objc protocol CGXFixedTopGeneralMenuViewDelgate:NSObjectProtocol {
     /*点击事件*/
     @objc optional func selectInderCGXFixedTopGeneralMenuView(baseView:UIView, index: NSInteger) -> Void
+    
+    /*滚动事件*/
+    @objc optional func scrollerInderCGXFixedTopGeneralMenuView(baseView:UIView, index: NSInteger) -> Void
     
 }
