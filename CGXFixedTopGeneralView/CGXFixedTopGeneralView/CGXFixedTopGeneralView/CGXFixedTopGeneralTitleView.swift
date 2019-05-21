@@ -69,7 +69,7 @@ class CGXFixedTopGeneralTitleView: UIView,UICollectionViewDelegate,UICollectionV
         collectionView.selectItem(at: NSIndexPath.init(row: manager.currentSelected, section: 0) as IndexPath, animated: true, scrollPosition: ([]))
         collectionView.scrollToItem(at: IndexPath(row: manager.currentSelected, section: 0), at: .centeredHorizontally, animated: true)
         updatesliderView()
-        selectCurrentInterCGXFixedTopGeneralTitleView(inter: manager.currentSelected)
+        selectCurrentInterCGXFixedTopGeneralTitleView(inter: manager.currentSelected,isSelect: true)
     }
     
     fileprivate func updatesliderView() -> Void {
@@ -164,11 +164,11 @@ extension CGXFixedTopGeneralTitleView {
         return cell;
     }
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectCurrentInterCGXFixedTopGeneralTitleView(inter: indexPath.row)
+        selectCurrentInterCGXFixedTopGeneralTitleView(inter: indexPath.row,isSelect: true)
     }
     internal func selectCGXFixedTopGeneralTitleCellBtn(cell: CGXFixedTopGeneralTitleCell) {
         let indexPath:NSIndexPath = self.collectionView.indexPath(for: cell)! as NSIndexPath
-        selectCurrentInterCGXFixedTopGeneralTitleView(inter: indexPath.row)
+        selectCurrentInterCGXFixedTopGeneralTitleView(inter: indexPath.row,isSelect: true)
         
     }
     /// 获取滑块的长度
@@ -229,7 +229,7 @@ extension CGXFixedTopGeneralTitleView {
         self.collectionView.reloadItems(at: indexPathArray)
         
     }
-     //更新富文本字符串
+    //更新富文本字符串
     public func updateWithBtnWithAttributedString(normalAttributedString:NSAttributedString,selectAttributedString:NSAttributedString,index:NSInteger) -> Void {
         let inderPath: IndexPath = IndexPath.init(row: index, section: 0)
         let indexPathArray = [inderPath]
@@ -261,7 +261,7 @@ extension CGXFixedTopGeneralTitleView {
     
     
     //选中下标
-    public func selectCurrentInterCGXFixedTopGeneralTitleView(inter: NSInteger) {
+    public func selectCurrentInterCGXFixedTopGeneralTitleView(inter: NSInteger,isSelect:Bool) {
         let indexPath = NSIndexPath.init(row: inter, section: 0)
         if manager.isClick {
             if !manager.isFirst {
@@ -282,8 +282,10 @@ extension CGXFixedTopGeneralTitleView {
         }
         updatesliderView()
         collectionView.reloadData()
-        if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralTitleViewDelgate.collectionViewCGXFixedTopGeneralTitleView(baseView:_:didSelectItemAt:))))!{
-            self.delegate?.collectionViewCGXFixedTopGeneralTitleView!(baseView: self, collectionView, didSelectItemAt: indexPath as IndexPath)
+        if isSelect {
+            if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralTitleViewDelgate.collectionViewCGXFixedTopGeneralTitleView(baseView:_:didSelectItemAt:))))!{
+                self.delegate?.collectionViewCGXFixedTopGeneralTitleView!(baseView: self, collectionView, didSelectItemAt: indexPath as IndexPath)
+            }
         }
     }
 }

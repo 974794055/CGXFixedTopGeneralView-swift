@@ -18,7 +18,7 @@ class CGXFixedTopGeneralMainView: UIView,UIScrollViewDelegate {
     
     fileprivate var vcArray: [UIViewController] = [UIViewController]()
     
-    
+    fileprivate var currentSelected:NSInteger = 0
     //标签给外部提供的方法
     weak var delegate:CGXFixedTopGeneralMainViewDelgate?
     
@@ -30,8 +30,10 @@ class CGXFixedTopGeneralMainView: UIView,UIScrollViewDelegate {
     }
     
     //加载数据
-    func loadMainVC(vcAry:[UIViewController]) {
+    func loadMainVC(vcAry:[UIViewController],currentSelected:Int,isScroller:Bool) {
+        self.mainScrollView.isScrollEnabled = isScroller
        configMenuMainView()
+        self.currentSelected = currentSelected;
         vcArray = vcAry;
         configSubview()
     }
@@ -74,15 +76,23 @@ extension CGXFixedTopGeneralMainView {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == mainScrollView{
             let inter = NSInteger(scrollView.contentOffset.x / self.bounds.width)
-            if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralMainViewDelgate.selectIndexCGXFixedTopGeneralMainView(baseView:index:))))!{
-                self.delegate?.selectIndexCGXFixedTopGeneralMainView!(baseView: self, index: inter)
+            if self.currentSelected != inter{
+                self.currentSelected = inter
+                if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralMainViewDelgate.selectIndexCGXFixedTopGeneralMainView(baseView:index:))))!{
+                    self.delegate?.selectIndexCGXFixedTopGeneralMainView!(baseView: self, index: inter)
+                }
             }
         }
     }
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        let inter = NSInteger(scrollView.contentOffset.x / self.bounds.width)
-        if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralMainViewDelgate.selectIndexCGXFixedTopGeneralMainView(baseView:index:))))!{
-            self.delegate?.selectIndexCGXFixedTopGeneralMainView!(baseView: self, index: inter)
+        if scrollView == mainScrollView{
+            let inter = NSInteger(scrollView.contentOffset.x / self.bounds.width)
+            if self.currentSelected != inter{
+                self.currentSelected = inter
+                if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralMainViewDelgate.selectIndexCGXFixedTopGeneralMainView(baseView:index:))))!{
+                    self.delegate?.selectIndexCGXFixedTopGeneralMainView!(baseView: self, index: inter)
+                }
+            }
         }
     }
 }

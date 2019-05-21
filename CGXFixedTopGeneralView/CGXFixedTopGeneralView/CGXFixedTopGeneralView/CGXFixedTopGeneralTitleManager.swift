@@ -45,6 +45,8 @@ class CGXFixedTopGeneralTitleManager: NSObject {
     var sliderWidthScale: CGFloat = 0
     // 头部视图颜色
     var bgColor: UIColor = UIColor.white
+    /// 是否下可以滑动
+    var isScroller: Bool = true
     override init() {
         super.init()
     }

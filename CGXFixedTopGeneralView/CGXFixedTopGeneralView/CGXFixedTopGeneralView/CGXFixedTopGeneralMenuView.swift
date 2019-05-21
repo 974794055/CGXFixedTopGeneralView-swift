@@ -43,9 +43,9 @@ class CGXFixedTopGeneralMenuView: UIView,CGXFixedTopGeneralTitleViewDelgate,CGXF
         titleView.delegate = self
         self.addSubview(titleView)
         
-        mainView = CGXFixedTopGeneralMainView.init(frame: CGRect.init(x: 0, y: 60, width: frame.size.width, height: frame.size.height-height))
+        mainView = CGXFixedTopGeneralMainView.init(frame: CGRect.init(x: 0, y: height, width: frame.size.width, height: frame.size.height-height))
         mainView.delegate = self
-        mainView.loadMainVC(vcAry: vcAry as! [UIViewController])
+        mainView.loadMainVC(vcAry: vcAry as! [UIViewController],currentSelected: manager.currentSelected,isScroller: manager.isScroller)
         self.addSubview(mainView)
         titleView.updateWithManager(DataArray: titleAry, Manager: manager)
     }
@@ -70,7 +70,7 @@ class CGXFixedTopGeneralMenuView: UIView,CGXFixedTopGeneralTitleViewDelgate,CGXF
     }
     //默认选中下标
     public  func selectIndexWithCGXFixedTopGeneralMenuView(index:NSInteger) -> Void {
-        titleView.selectCurrentInterCGXFixedTopGeneralTitleView(inter: index)
+        titleView.selectCurrentInterCGXFixedTopGeneralTitleView(inter: index,isSelect: true)
     }
     
     
@@ -84,7 +84,7 @@ class CGXFixedTopGeneralMenuView: UIView,CGXFixedTopGeneralTitleViewDelgate,CGXF
     }
     //滑动控制器
     internal  func selectIndexCGXFixedTopGeneralMainView(baseView: UIView, index: NSInteger) {
-        titleView.selectCurrentInterCGXFixedTopGeneralTitleView(inter: index)
+        titleView.selectCurrentInterCGXFixedTopGeneralTitleView(inter: index,isSelect:false)
         
         if self.delegate != nil && (self.delegate?.responds(to: #selector(CGXFixedTopGeneralMenuViewDelgate.scrollerInderCGXFixedTopGeneralMenuView(baseView:index:))))!{
             self.delegate?.scrollerInderCGXFixedTopGeneralMenuView!(baseView: self, index: index)
