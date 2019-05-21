@@ -11,7 +11,7 @@ s.swift_version = "4.2"
 s.source       = { :git => "https://github.com/974794055/CGXFixedTopGeneralView-Swift.git", :tag => s.version }         #存储库的git地址，以及tag值
 s.requires_arc = true #是否支持ARC
 s.frameworks = 'UIKit'
-s.source_files  =  "CGXFixedTopGeneralView-Swift", "CGXFixedTopGeneralView-Swift/**/*.{h,m}" #需要托管的源代码路径
+s.source_files  =  "CGXFixedTopGeneralView-Swift", "CGXFixedTopGeneralView-Swift/**/*.{swift}" #需要托管的源代码路径
 end
 
 
