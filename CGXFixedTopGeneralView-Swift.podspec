@@ -7,6 +7,7 @@ s.homepage     = "https://github.com/974794055/CGXFixedTopGeneralView-Swift"    
 s.license      = { :type => "MIT", :file => "LICENSE" }   #开源协议
 s.author             = { "974794055" => "974794055@qq.com" }  #作者
 s.platform     = :ios, "8.0"                  #支持的平台和版本号
+s.swift_version = "4.2"
 s.source       = { :git => "https://github.com/974794055/CGXFixedTopGeneralView-Swift.git", :tag => s.version }         #存储库的git地址，以及tag值
 s.requires_arc = true #是否支持ARC
 s.frameworks = 'UIKit'
