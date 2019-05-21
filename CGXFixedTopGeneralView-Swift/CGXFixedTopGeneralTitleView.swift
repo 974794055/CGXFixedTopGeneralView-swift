@@ -212,7 +212,6 @@ extension CGXFixedTopGeneralTitleView {
     @objc optional func collectionViewCGXFixedTopGeneralTitleView(baseView:UIView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     /*点击事件*/
     @objc optional func collectionViewCGXFixedTopGeneralTitleView(baseView:UIView, _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) -> Void
-    
 }
 //MARK: - 外界调用
 extension CGXFixedTopGeneralTitleView {
