@@ -56,8 +56,8 @@
 		04E922AE2293AB6E003893A0 /* CGXFixedTopGeneralView-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				04E922AF2293AB6E003893A0 /* CGXFixedTopGeneralTitleItem.swift */,
 				04E922B02293AB6E003893A0 /* CGXFixedTopGeneralMenuView.swift */,
+				04E922AF2293AB6E003893A0 /* CGXFixedTopGeneralTitleItem.swift */,
 				04E922B12293AB6E003893A0 /* CGXFixedTopGeneralTitleView.swift */,
 				04E922B82293AB6E003893A0 /* CGXFixedTopGeneralTitleManager.swift */,
 				04E922B22293AB6E003893A0 /* CGXFixedTop */,
